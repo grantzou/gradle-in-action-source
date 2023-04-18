@@ -4,6 +4,14 @@ allprojects {
     version = '0.1'
 
     apply from: "$rootDir/gradle/versioning.gradle"
+    
+    repositories {
+            mavenLocal()
+            // Any Organization/Company specific repo url goes here
+            maven {
+                url "https://repo1.maven.org/maven2"
+            }
+    }
 }
 
 subprojects {
