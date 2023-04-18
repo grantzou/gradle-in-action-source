@@ -2,10 +2,7 @@ pipeline {
     agent any
 	tools {
         jdk 'Java8'
-    }
-	environment {
-	}
-	
+    }	
 	stages {
 	   stage('Preparation') {
 	      steps {
