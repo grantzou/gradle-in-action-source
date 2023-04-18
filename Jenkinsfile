@@ -1,7 +1,9 @@
 pipeline {
     agent any
+	tools {
+        jdk 'Java8'
+    }
 	environment {
-		JAVA_HOME = "${JAVA8_HOME}"
 	}
 	
 	stages {
@@ -18,7 +20,7 @@ pipeline {
        stage("Artifactory Release") {
            steps {
               cleanWs()
-			  git url: 'https://github.com/grantzou/gradle-in-action-source.git''
+			  git url: 'https://github.com/grantzou/gradle-in-action-source.git'
               sh 'cd chapter14/listing_14_17-todo-maven-publish'
 			  sh '../../gradlew clean build publish'
             }
