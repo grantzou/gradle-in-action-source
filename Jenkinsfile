@@ -1,6 +1,7 @@
 pipeline {
     agent any
 	environment {
+		JAVA_HOME = "${JAVA8_HOME}"
 	}
 	
 	stages {
@@ -12,8 +13,6 @@ pipeline {
 	          } 
 			  cleanWs()
 			  git url: 'https://github.com/grantzou/gradle-in-action-source.git'
-              sh 'curl -s "https://beta.sdkman.io" | bash'
-			  sh 'sdk java install 8.0.362-tem
 		  }
 	   }
        stage("Artifactory Release") {
